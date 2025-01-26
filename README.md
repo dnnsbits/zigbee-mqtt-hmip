@@ -31,11 +31,13 @@
    
 ## Geräte
 
+### ZB Bridge
+
+#### Geräte benennen
+
+* Gerät benennen -> Werkzeuge/Konsole: __ZbName 0x5480,NAME01__
+
 ### Sonoff SNZB-02D Temperatur- und Luftfeuchtigkeitssensor mit Display
-
-#### ZB Bridge
-
-* Gerät benennen -> Werkzeuge/Konsole: __ZbName 0x5480,THERMO1__
 
 #### MQTT Topic 
 
@@ -69,6 +71,39 @@ Topic _zbbridge/tele/SENSOR_ Value ist _OHNE_ Leerzeichen und Umbrüche!
   * CLIMATE_TRANSCEIVER|HUMIDITY_TOPIC __zbbridge/tele/SENSOR__
   * CLIMATE_TRANSCEIVER|HUMIDITY_PATTERN __{{(parseJSON .).ZbReceived.THERMO1.Humidity}}__
   * CLIMATE_TRANSCEIVER|HUMIDITY_EXTRACTOR __TEMPLATE__
+
+### Nous Zigbee Socket A1Z (Plug) Zwischenstecker Schaltsteckdose
+
+#### MQTT Topic 
+
+Topic _zbbridge/tele/SENSOR_ Value ist _OHNE_ Leerzeichen und Umbrüche!
+
+    {
+      "ZbReceived": {
+        "PLUG1": {
+          "Device": "0x1234",
+          "Name": "PLUG1",
+          "RMSVoltage": 231,
+          "RMSCurrent": 0,
+          "ActivePower": 0,
+          "CurrentSummationDelivered": "0x00000000000D",
+          "Endpoint": 1,
+          "LinkQuality": 98
+        }
+      }
+    }
+
+#### ccu-jack
+
+* Virtuelle Geräte/Erstellen
+  * Gerätesymbol __ABC__
+  * Kanal 1: __Schaltaktor__
+  * Kanal 2: __Messung__
+ 
+#### CCU3
+
+* Geräte Einstellungen (für Kanal 1 - Schalter (Aktor))
+* Geräte Einstellungen (für Kanal 2 - Messung)
 
 
 
