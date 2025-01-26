@@ -18,7 +18,7 @@
 * freundliches JSON (Name statt Geräte-ID)
   * Werkzeuge/Konsole: __SetOption83 1__
  
-    `{"ZbReceived":{"0x8FD8":{"Device":"0x5480","Temperature":20.3,"Endpoint":1,"LinkQuality":76}}}`
+    `{"ZbReceived":{"0x5480":{"Device":"0x5480","Temperature":20.3,"Endpoint":1,"LinkQuality":76}}}`
     
     wird zu
     
