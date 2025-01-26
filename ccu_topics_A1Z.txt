@@ -1,0 +1,57 @@
+kopierfreundliche Topics
+Zwischenstecker
+Nous A1Z
+
+Kanal 1
+
+SWITCH|COMMAND_TOPIC 
+zbbridge/cmnd/ZbSend
+  
+SWITCH|ON_PAYLOAD 
+{"device":"A1Z","send":{"Power":"1"}}
+
+SWITCH|OFF_PAYLOAD 
+{"device":"A1Z","send":{"Power":"0"}}
+
+SWITCH|FEEDBACK_TOPIC 
+zbbridge/tele/SENSOR
+
+SWITCH|ON_PATTERN 
+"Name":"A1Z","Power":1
+
+SWITCH|OFF_PATTERN 
+"Name":"A1Z","Power":0
+SWITCH|MATCHER 
+CONTAINS
+
+Kanal 2
+  
+POWERMETER|POWER_TOPIC 
+zbbridge/tele/SENSOR
+
+POWERMETER|POWER_PATTERN 
+{{(parseJSON .).ZbReceived.A1Z.ActivePower}}
+
+POWERMETER|POWER_EXTRACTOR 
+TEMPLATE
+
+
+POWERMETER|CURRENT_TOPIC 
+zbbridge/tele/SENSOR
+
+POWERMETER|CURRENT_PATTERN
+{{(parseJSON .).ZbReceived.A1Z.RMSCurrent}}
+
+POWERMETER|CURRENT_EXTRACTOR
+TEMPLATE
+
+POWERMETER|VOLTAGE_TOPIC 
+zbbridge/tele/SENSOR
+
+POWERMETER|VOLTAGE_PATTERN 
+{{(parseJSON .).ZbReceived.A1Z.RMSVoltage}}
+
+POWERMETER|VOLTAGE_EXTRACTOR 
+TEMPLATE
+
+
