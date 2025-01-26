@@ -96,14 +96,33 @@ Topic _zbbridge/tele/SENSOR_ Value ist _OHNE_ Leerzeichen und Umbrüche!
 #### ccu-jack
 
 * Virtuelle Geräte/Erstellen
-  * Gerätesymbol __ABC__
-  * Kanal 1: __Schaltaktor__
-  * Kanal 2: __Messung__
+  * Gerätesymbol __HM-ES-PMSw1-Pl__
+  * Kanal 1: __MQTT Schaltaktor mit Rückmeldung__
+  * Kanal 2: __MQTT Energiemessung__
  
 #### CCU3
 
-* Geräte Einstellungen (für Kanal 1 - Schalter (Aktor))
-* Geräte Einstellungen (für Kanal 2 - Messung)
+!alle Playloads und Topics OHNE Leerzeichen
+
+* Geräte Einstellungen (für Kanal 1 - Schaltaktor)
+  * SWITCH|COMMAND_TOPIC __zbbridge/cmnd/ZbSend__
+  * SWITCH|ON_PAYLOAD __{"device":"PLUG1","send":{"Power":"1"}}__
+  * SWITCH|OFF_PAYLOAD __{"device":"PLUG1","send":{"Power":"0"}}__
+  * SWITCH|FEEDBACK_TOPIC __zbbridge/tele/SENSOR__
+  * SWITCH|ON_PATTERN __"Name":"PLUG1","Power":1__
+  * SWITCH|OFF_PATTERN __"Name":"PLUG1","Power":0__
+  * SWITCH|MATCHER __CONTAINS__
+* Geräte Einstellungen (für Kanal 2 - Messwert-Kanal)
+  * POWERMETER|POWER_TOPIC __zbbridge/tele/SENSOR__
+  * POWERMETER|POWER_PATTERN __{{(parseJSON .).ZbReceived.PLUG1.ActivePower}}__
+  * POWERMETER|POWER_EXTRACTOR __TEMPLATE__
+  * POWERMETER|CURRENT_TOPIC __zbbridge/tele/SENSOR__
+  * POWERMETER|CURRENT_PATTERN __{{(parseJSON .).ZbReceived.PLUG1.RMSCurrent}}__
+  * POWERMETER|CURRENT_EXTRACTOR __TEMPLATE__
+  * POWERMETER|VOLTAGE_TOPIC __zbbridge/tele/SENSOR__
+  * POWERMETER|VOLTAGE_PATTERN __{{(parseJSON .).ZbReceived.PLUG1.RMSVoltage}}__
+  * POWERMETER|VOLTAGE_EXTRACTOR __TEMPLATE__
+
 
 
 
