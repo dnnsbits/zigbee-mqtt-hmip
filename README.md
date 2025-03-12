@@ -1,4 +1,6 @@
-# hmip-mqtt-zigbee
+# zigbee-mqtt-hmip
+
+Zigbee via MQTT zu HM-IP
 
 ## Voraussetzung
 
