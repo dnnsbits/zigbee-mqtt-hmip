@@ -125,6 +125,17 @@ Topic _zbbridge/tele/SENSOR_ Value ist _OHNE_ Leerzeichen und Umbrüche!
   * POWERMETER|VOLTAGE_PATTERN __{{(parseJSON .).ZbReceived.PLUG1.RMSVoltage}}__
   * POWERMETER|VOLTAGE_EXTRACTOR __TEMPLATE__
 
+## Troubleshooting
+
+* Sonoff SNZB-02D, Sonoff SNZB-02P Sensoren lassen sich nicht anlernen/pairen
+  * Batterie herausnehmen, eine Weile warten, Batterie wieder rein 
+  * auf der Bridge/WebUI das Pairing starten
+  * 5 bis 6 Sekunden den Pairing-Knopf drücken bis das Antennensymbol auf dem Display bzw. die LED blink
+
+
+  
+  
+
 
 
 
